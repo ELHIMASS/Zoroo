@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/pageContact.css">
+    <title>Page de Contact</title>
+</head>
+<body>
+    <!DOCTYPE html> <!--pour s'assurer que la page web est rendue correctement sur tous les navigateurs modernes-->
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Support Location de Motos</title>
+</head>
+<body>
+    
+    <header>
+        <h1>Contactez-nous pour toute question ou assistance – Location de Motos</h1>
+    </header>
+
+    <div class="container">
+        <h2>Contactez-nous</h2>
+        <p>Si vous avez des questions ou besoin d'aide, n'hésitez pas à nous contacter via le formulaire ci-dessous.</p>
+        <img class="image" src="img02.webp" alt="image">
+        <form action="/envoyer-message" method="POST">
+            
+            <label for="name">Votre Nom</label>
+            <input type="text" id="name" name="name" placeholder="Entrez votre nom" required>
+
+            <label for="email">Votre Email</label>
+            <input type="email" id="email" name="email" placeholder="Entrez votre email" required>
+
+            <label for="subject">Objet</label>
+            <input type="text" id="subject" name="subject" placeholder="Entrez l'objet de votre message" required>
+
+            <label for="message">Message</label>
+            <textarea id="message" name="message" placeholder="Détaillez votre question ou problème" required></textarea>
+
+            <button type="submit">Envoyer le Message</button>
+        </form>
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2024 Location de Motos. Tous droits réservés.</p>
+    </div>
+</body>
+</html>
+
+</body>
+</html>
