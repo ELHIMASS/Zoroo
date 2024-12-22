@@ -7,12 +7,34 @@
     <link rel="stylesheet" href="./index.css">
 </head>
 <body>
-    <div class="container">
+    <!-- Navbar -->
+    <nav class="navbar">
         <div class="logo">
-            <img src="../motolog.png" alt="Logo" class="logo-img">
+            <img src="../motolog.png" alt="Logo" class="logo-img animated-logo">
         </div>
+        <div class="nav-links">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">As</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </div>
+        <div class="signup-btn">
+            <a href="#">Inscription</a>
+        </div>
+    </nav>
+
+    <!-- Login Form -->
+    <div class="container">
         <div class="form-container">
             <h2>Connexion</h2>
+            
+            <!-- Rotating Logo Above Button -->
+            <div class="rotating-logo-container">
+                <img src="../motolog.png" alt="Logo Rotating" class="rotating-logo">
+            </div>
+            
             <form action="#" method="POST">
                 <div class="input-group">
                     <label for="username">Nom d'utilisateur</label>
@@ -24,9 +46,11 @@
                 </div>
                 <div class="btn-container">
                     <button type="submit" class="btn">Se connecter</button>
-                   
                 </div>
             </form>
+            <div class="forgot-password">
+                <a href="../pageMdpsO/index.html">Mot de passe oublié ?</a>
+            </div>
         </div>
     </div>
 
