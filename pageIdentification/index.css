@@ -1,4 +1,4 @@
-/* Général */
+/* Reset global settings */
 * {
     margin: 0;
     padding: 0;
@@ -8,148 +8,176 @@
 body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    overflow: hidden; /* Empêche le débordement de l'écran pendant l'animation */
-}
-
-/* Conteneur principal */
-.container {
-    position: relative;
-    width: 100%;
-    max-width: 400px;
-    padding: 20px;
-    background-color: #ffffff;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     color: #333;
 }
 
-/* Animation du logo */
-.logo {
+/* Navbar Styling */
+.navbar {
     display: flex;
-    justify-content: center;
-    margin-bottom: 20px;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    background-color: #fff; /* Navbar background set to white */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for navbar */
 }
 
-.logo-img {
-    width: 100px;
+.navbar .logo-img {
+    width: 80px;  /* Increased logo size */
     height: auto;
-    animation: logoAnimation 4s ease-in-out infinite;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: logoAnimation 1s ease-out forwards;
 }
 
+/* Animation for the main logo */
 @keyframes logoAnimation {
     0% {
-        transform: rotate(0deg);
+        opacity: 0;
+        transform: translateY(20px);
     }
-    50% {
-        transform: rotate(180deg);
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Rotating Logo Animation */
+@keyframes rotatingLogo {
+    0% {
+        transform: rotate(0deg);
     }
     100% {
         transform: rotate(360deg);
     }
 }
 
-/* Conteneur du formulaire */
+/* Styling for rotating logo */
+.rotating-logo-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.rotating-logo {
+    width: 80px;  /* Increased size of the rotating logo */
+    height: auto;
+    animation: rotatingLogo 3s linear infinite;
+}
+
+/* Navbar links */
+.nav-links ul {
+    display: flex;
+    justify-content: center; /* Center links horizontally */
+    gap: 30px; /* Spacing between links */
+    list-style: none;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #333;
+    font-size: 16px;
+    padding: 10px 20px;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #007BFF; /* Color change on hover */
+}
+
+/* Signup button */
+.signup-btn a {
+    text-decoration: none;
+    background-color: #007BFF;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.signup-btn a:hover {
+    background-color: #0056b3;
+}
+
+/* Login form styling */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
 .form-container {
-    text-align: center;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    width: 100%;
+    max-width: 400px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 h2 {
+    text-align: center;
     font-size: 24px;
     margin-bottom: 20px;
-    color: #007bff;
+    color: #333;
 }
 
-/* Champs de formulaire */
 .input-group {
-    margin-bottom: 15px;
-    text-align: left;
+    margin-bottom: 20px;
 }
 
 .input-group label {
+    display: block;
+    margin-bottom: 8px;
     font-size: 14px;
-    color: #555;
+    color: #333;
 }
 
 .input-group input {
     width: 100%;
     padding: 12px;
-    margin-top: 5px;
+    font-size: 16px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    font-size: 16px;
     outline: none;
-    background-color: #f4f4f4;
-    color: #333;
-    transition: border-color 0.3s;
+    transition: border-color 0.3s ease;
 }
 
 .input-group input:focus {
-    border-color: #007bff;
+    border-color: #007BFF;
 }
 
-/* Bouton de soumission */
 .btn-container {
-    position: relative; /* Pour positionner la moto par rapport au bouton */
+    text-align: center;
 }
 
 .btn {
-    width: 200px;
-    padding: 12px;
-    background-color: #007bff;
+    background-color: #007BFF;
     color: white;
-    font-size: 16px;
     border: none;
+    padding: 12px 20px;
     border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s;
+    width: 100%;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
 }
 
 .btn:hover {
     background-color: #0056b3;
 }
 
-/* Animation de la moto (montée lente) */
-.moto {
-    position: absolute;
-    width: 50px;  /* Taille plus petite de la moto */
-    height: auto;
-    bottom: -60px;  /* Moto juste en dessous du bouton */
-    opacity: 0;
-    animation: motoAnimation 5s ease-in-out forwards;
+.forgot-password {
+    text-align: center;
+    margin-top: 10px;
 }
 
-
-
-@keyframes motoAnimation {
-    0% {
-        bottom: -60px;  /* Commence juste en dessous du bouton */
-        opacity: 1;
-    }
-    50% {
-        bottom: 30px; /* Atteint une position plus haute (moto monte lentement) */
-    }
-    100% {
-        bottom: 60px; /* La moto finit à une position plus haute */
-        opacity: 1;
-    }
-}
-
-/* Liens supplémentaires */
-.extra-links {
-    margin-top: 15px;
-}
-
-.extra-links a {
-    font-size: 14px;
-    color: #555;
+.forgot-password a {
+    color: #007BFF;
     text-decoration: none;
-    margin: 0 5px;
+    font-size: 14px;
 }
 
-.extra-links a:hover {
-    color: #007bff;
+.forgot-password a:hover {
+    text-decoration: underline;
 }
