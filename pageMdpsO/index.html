@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mot de Passe Oublié</title>
+    <link rel="stylesheet" href="./index.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo">
+            <img src="../motolog.png" alt="Logo" class="logo-img">
+        </div>
+    </nav>
+
+    <!-- Forgot Password Form -->
+    <div class="container">
+        <div class="form-container">
+            <h2>Mot de passe oublié</h2>
+            <p>Veuillez entrer votre adresse e-mail ou votre numéro de téléphone pour recevoir un lien de réinitialisation.</p>
+            <form action="#" method="POST">
+                <div class="input-group">
+                    <label for="emailOrPhone">E-mail ou Numéro de téléphone</label>
+                    <input type="text" id="emailOrPhone" name="emailOrPhone" placeholder="Entrez votre e-mail ou numéro de téléphone" required>
+                </div>
+                <div class="btn-container">
+                    <button type="submit" class="btn">Envoyer le lien</button>
+                </div>
+            </form>
+            <div class="back-to-login">
+                <a href="login.html">Retour à la connexion</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
