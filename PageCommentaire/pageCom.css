@@ -89,8 +89,8 @@ button:hover {
 }
 
 footer {
-    background-color: #34c9e0;
-    color: white;
+    
+    color: rgb(101, 98, 98);
     text-align: center;
     padding: 10px;
     /*position: fixed;*/
