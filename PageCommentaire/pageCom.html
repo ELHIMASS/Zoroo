@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page de Commentaires - Location de Motos</title>
+    <link rel="stylesheet" href="/PageCommentaire/pageCom.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>Location de Motos - Page de Commentaires</h1>
+    </header>
+
+    <div class="container">
+        <h2>Laissez-nous un commentaire !</h2>
+        <p>Nous serions ravis de connaître votre avis sur notre service de location de motos. Votre retour nous aide à nous améliorer !</p>
+        <img class="image" src="img02.webp" alt="image">
+        <form action="/submit-comment" method="POST">
+            <label for="name">Votre Nom :</label>
+            <input type="text" id="name" name="name" placeholder="Entrez votre nom" required>
+
+            <label for="email">Votre Email :</label>
+            <input type="email" id="email" name="email" placeholder="Entrez votre email" required>
+
+            <label for="rating">Note (1 à 5) :</label>
+            <select id="rating" name="rating" required>
+                <option value="1">1 - Très mauvais</option>
+                <option value="2">2 - Mauvais</option>
+                <option value="3">3 - Moyen</option>
+                <option value="4">4 - Bon</option>
+                <option value="5">5 - Excellent</option>
+            </select>
+
+            <label for="comment">Votre Commentaire :</label>
+            <textarea id="comment" name="comment" placeholder="Partagez votre expérience ici" rows="4" required></textarea>
+
+            <button type="submit">Envoyer le Commentaire</button>
+        </form>
+
+        <div class="comments-section">
+            <h3>Commentaires récents :</h3>
+
+            <!-- Exemple de commentaire -->
+            <div class="comment">
+                <h4>Jean Dupont <span class="rating">Note: 5/5</span></h4>
+                <p>Excellente expérience de location ! La moto était en parfait état et le service client très réactif. Je recommande vivement !</p>
+            </div>
+
+            <div class="comment">
+                <h4>Marie Lefevre <span class="rating">Note: 4/5</span></h4>
+                <p>Bonne expérience, mais la procédure de retour de la moto pourrait être plus claire. Sinon, tout était parfait.</p>
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Location de Motos - Tous droits réservés.</p>
+    </footer>
+
+</body>
+
+</html>
