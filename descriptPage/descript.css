@@ -1,0 +1,165 @@
+
+
+
+
+
+
+
+/* Conteneur principal */
+.moto-details {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center; /* Centrer le contenu */
+}
+
+/* Diaporama d'images */
+.image-slider {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.image-slider img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 10;
+    font-size: 18px;
+}
+
+.prev-btn {
+    left: 10px;
+}
+
+.next-btn {
+    right: 10px;
+}
+
+/* Informations principales */
+.moto-info {
+    margin-top: 20px;
+    font-size: 1.2rem;
+}
+
+.moto-info h2 {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.moto-info p {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+/* Section détails techniques */
+.moto-extras {
+    margin-top: 20px;
+    text-align: left; /* Aligner les détails à gauche */
+    font-size: 1rem;
+    
+}
+
+.moto-extras p {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #1abc9c;
+    margin-bottom: 10px;
+    text-align: center; /* Centrer le prix */
+   
+}
+
+.moto-extras ul {
+    list-style: disc; /* Ajouter des puces */
+    padding-left: 20px;
+    
+}
+
+.moto-extras ul li {
+    margin-bottom: 8px; /* Espacer les lignes */
+    color: #555;
+   
+}
+
+
+
+.btn-prix {
+    position: absolute;
+    
+    transform: translateY(-50%);
+   
+    color: rgb(2, 116, 13);
+    border: none;
+    border-radius: 50%;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 10;
+    font-size: 18px;
+    margin-left: 590px;
+    margin-top: -30px;
+    
+ 
+}
+
+.LOUER {
+    position: absolute;
+    
+    transform: translateY(-50%);
+    background-color: rgba(6, 144, 13, 0.6);
+    color: white;
+    border: none;
+    border-radius: 1rem;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 10px;
+    font-size: 18px;
+    margin-left: 550px;
+    margin-top: -80px;
+    
+ 
+}
+:hover.LOUER {
+    position: absolute;
+    
+    transform: translateY(-50%);
+    background-color: rgba(1, 1, 1, 0.6);
+    color: rgb(0, 0, 0);
+    border: none;
+    border-radius: 1rem;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 10px;
+    font-size: 18px;
+    margin-left: 550px;
+    margin-top: -80px;
+   
+    
+ 
+}
+
+
+
+
+
