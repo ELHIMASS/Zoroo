@@ -1,0 +1,123 @@
+.partie01 {
+    width: 100%;
+    background-image: url(photo01.jpg);
+    background-position: center;
+    background-size: cover;
+    height: calc(50vh - 85px);
+    
+    
+    flex-direction: column; /* Permet d'aligner verticalement */
+    align-items: center; /* Centre horizontalement */
+    justify-content: center; /* Centre verticalement */
+    text-align: center; /* Centre le texte dans le <h5> */
+    
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    justify-content: space-around;
+    
+}
+
+.partie01 h5 {
+    margin: 0 20px; /* Ajoute une marge pour éviter que le texte colle aux bords */
+    line-height: 1.5; /* Améliore l'espacement entre les lignes */
+    color: black;
+    text-align: center;
+}
+
+.partie01 button {
+    font-size: 14px; /* Réduit la taille du texte dans le bouton */
+    padding: 8px 16px; /* Ajuste les marges internes du bouton */
+    margin-top: 15px; /* Ajoute un espace au-dessus du bouton */
+    border-radius: 4px; /* Ajoute un léger arrondi pour un style moderne */
+}
+
+
+
+
+
+.partie02{
+    background-color: white;
+    margin-bottom: 50px;
+}
+
+p{
+    list-style: none;
+    color: black;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+}
+
+h1{
+    color: black;
+    
+}
+
+
+.prt1{
+    display: flex;
+    flex-direction: column;
+   
+    justify-content: center; /* Centre verticalement */
+    align-items: center; /* Centre horizontalement */
+    margin-bottom: 40px; /* Espace sous le paragraphe */
+}
+
+.ptr2 {
+    display: flex;
+    flex-direction: row; 
+    justify-content: space-between;
+    justify-content: space-around;
+    
+
+}
+
+.bouton1 {
+    margin-left: 50px;
+    background-color: transparent;; 
+    color: blueviolet; 
+    padding: 9px 15px; 
+    border-color: blueviolet;
+    border-radius: 50px; 
+    cursor: pointer;
+}
+.bouton1:hover{
+    transform: scale(1.06);
+}
+.bouton2 {
+    background-color: blueviolet; 
+    color: white; 
+    padding: 7px 15px; 
+    border: none;
+    border-radius: 4px; 
+    cursor: pointer;
+}
+.partie03{
+    background-color: black;
+    display: flex;
+    justify-content: space-between;
+    justify-content: space-around;
+}
+
+.partie03 p{
+    color: white;
+}
+
+.p2{
+    font-size: 35px;
+}
+.p1{
+    font-size: 17px;
+    color: rgb(20, 115, 192);
+}
+
+.section3{
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+    justify-content: space-around;
+}
+
+html {
+    scroll-behavior: smooth;
+}
