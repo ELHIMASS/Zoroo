@@ -1,75 +1,34 @@
-.ajou{
-    background: none;
-}
+
 body{
-    background-image: url(/PageAcceuil/fira.png);
+    background-image: url(/moto_loc/PageAcceuil/fira.png);
+    background-size: 100%;
+    background-repeat: no-repeat;
 }
-.partie01 {
-    width: 100%;
-    background-image: url(photo01.jpg);
-    background-position: center;
-    background-size: cover;
-    height: calc(50vh - 85px);
-    
-    
-    flex-direction: column; /* Permet d'aligner verticalement */
-    align-items: center; /* Centre horizontalement */
-    justify-content: center; /* Centre verticalement */
-    text-align: center; /* Centre le texte dans le <h5> */
-    
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    justify-content: space-around;
-    
-}
-
-.partie01 h5 {
-    margin: 0 20px; /* Ajoute une marge pour éviter que le texte colle aux bords */
-    line-height: 1.5; /* Améliore l'espacement entre les lignes */
-    color: black;
-    text-align: center;
-}
-
-.partie01 button {
-    font-size: 14px; /* Réduit la taille du texte dans le bouton */
-    padding: 8px 16px; /* Ajuste les marges internes du bouton */
-    margin-top: 15px; /* Ajoute un espace au-dessus du bouton */
-    border-radius: 4px; /* Ajoute un léger arrondi pour un style moderne */
-}
-
-
-
 
 
 .partie02{
-    background-color: white;
-    margin-bottom: 50px;
-    margin-top: -260px;
+    display: flex;
+    flex-direction: column;
 }
 
-p{
-    list-style: none;
+.partie02 h3{
     color: black;
-    font-family: Arial, Helvetica, sans-serif;
-    font-weight: bold;
+    text-align: center;
 }
-
-h1{
-    color: black;
-    
-}
-
 
 .prt1{
     display: flex;
     flex-direction: column;
     color: white;
-   margin-top: -20px;
-    justify-content: center; /* Centre verticalement */
-    align-items: center; /* Centre horizontalement */
-    margin-bottom: 40px; /* Espace sous le paragraphe */
-    background-color: black;
+    margin-top: -20px;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 40px;
+    
+}
+
+.prt1 h1 {
+    color: black;
 }
 
 .ptr2 {
@@ -77,16 +36,16 @@ h1{
     flex-direction: row; 
     justify-content: space-between;
     justify-content: space-around;
-    
+    margin-bottom: 25px
 
 }
 
 .bouton1 {
     margin-left: 50px;
     background-color: transparent;; 
-    color: blueviolet; 
+    color: rgb(13, 91, 194); 
     padding: 9px 15px; 
-    border-color: blueviolet;
+    border-color: rgb(13, 91, 194);
     border-radius: 50px; 
     cursor: pointer;
 }
@@ -127,9 +86,6 @@ h1{
     justify-content: space-around;
 }
 
-html {
-    scroll-behavior: smooth;
-}
 
 
 
