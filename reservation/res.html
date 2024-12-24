@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Réservation de Moto</title>
+    <link rel="stylesheet" href="/reservation/res.css"> <!-- Lien vers votre fichier CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css">
+</head>
+<body>
+    <!-- HEADER : Barre de navigation -->
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="#">
+                <img src="moto_loc/motolog.png" alt="logo" style="height: 40px;"> <!-- Chemin relatif vers le logo -->
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mx-auto"> 
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/PageAcceuil/pageAcceuil.html">Home<span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">About us<span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="">Contact<span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Plus
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="#" style="color: rgb(178, 108, 22);">Moto Disponible</a>
+                            <a class="dropdown-item" href="#">Rechercher une moto</a>
+                        </div>
+                    </li>
+                </ul>
+                <form class="form-inline my-2 my-lg-0">
+                    <button class="btn btn-primary mr-2" type="button" onclick="window.location.href='#'">Connexion</button>
+                    <button class="btn btn-outline-primary" type="button" onclick="window.location.href='#'">Inscription</button>
+                </form>
+            </div>
+        </nav>
+    </header>
+
+    <!-- CONTENU PRINCIPAL -->
+    <main class="container mt-4">
+        <h2 class="text-center">Réserver une Moto</h2>
+        <p class="text-center">Trouvez votre moto idéale et réservez-la en quelques clics.</p>
+        <form id="reservationForm" class="shadow p-4 rounded">
+            <div class="form-group">
+                <label for="fullName">Nom Complet :</label>
+                <input type="text" id="fullName" class="form-control" placeholder="Entrez votre nom complet" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email :</label>
+                <input type="email" id="email" class="form-control" placeholder="Entrez votre email" required>
+            </div>
+            <div class="form-group">
+                <label for="phone">Téléphone :</label>
+                <input type="tel" id="phone" class="form-control" placeholder="Entrez votre numéro de téléphone" required>
+            </div>
+            <div class="form-group">
+                <label for="motoModel">Modèle de Moto :</label>
+                <select id="motoModel" class="form-control">
+                    <option value="Yamaha R1">Yamaha R1</option>
+                    <option value="Kawasaki Ninja">Kawasaki Ninja</option>
+                    <option value="Honda CBR">Honda CBR</option>
+                    <option value="Suzuki Hayabusa">Suzuki Hayabusa</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="reservationDate">Date de Réservation :</label>
+                <input type="date" id="reservationDate" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="notes">Remarques (Optionnel) :</label>
+                <textarea id="notes" class="form-control" rows="4" placeholder="Ajoutez vos remarques ici"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Réserver</button>
+        </form>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer bg-dark text-white text-center py-3 mt-4">
+        <p>&copy; 2024 Moto Loc. Tous droits réservés.</p>
+    </footer>
+
+    <!-- SCRIPTS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"></script>
+    <script src="/reservation/res.js"></script>
+</body>
+</html>
