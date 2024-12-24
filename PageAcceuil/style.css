@@ -1,3 +1,9 @@
+.ajou{
+    background: none;
+}
+body{
+    background-image: url(/PageAcceuil/fira.png);
+}
 .partie01 {
     width: 100%;
     background-image: url(photo01.jpg);
@@ -39,6 +45,7 @@
 .partie02{
     background-color: white;
     margin-bottom: 50px;
+    margin-top: -260px;
 }
 
 p{
@@ -57,10 +64,12 @@ h1{
 .prt1{
     display: flex;
     flex-direction: column;
-   
+    color: white;
+   margin-top: -20px;
     justify-content: center; /* Centre verticalement */
     align-items: center; /* Centre horizontalement */
     margin-bottom: 40px; /* Espace sous le paragraphe */
+    background-color: black;
 }
 
 .ptr2 {
@@ -120,4 +129,11 @@ h1{
 
 html {
     scroll-behavior: smooth;
+}
+
+
+
+
+.miniature{
+    height: calc(70vh - 75px);
 }
