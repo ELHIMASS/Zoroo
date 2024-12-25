@@ -9,3 +9,4 @@ document.querySelector('form').addEventListener('submit', function (e) {
         alert(`Recherche pour ${ville} avec permis ${permis}.`);
     }
 });
+

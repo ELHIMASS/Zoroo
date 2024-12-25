@@ -11,6 +11,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 "../catalo/images/mt072.jpeg",
                 "../catalo/images/mt073.jpeg"
             ],
+            type: "Sportif",
+            link: "/descriptPage/descript.html?id=1"
         },
 
         { 
@@ -23,6 +25,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 "../catalo/images/harley04.jpg",
                 "../catalo/images/harley05.jpg"
             ],
+            type: "Cruiser",
+            link: "/descriptPage/descript.html?id=2"
         },
 
         { 
@@ -33,6 +37,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 "../catalo/images/bmw02.jpg",
                 "../catalo/images/bmw03.jpg"
             ],
+            type: "Adventure",
+            link: "/descriptPage/descript.html?id=3"
         },
 
         { 
@@ -43,6 +49,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 "../catalo/images/xadv02.jpg",
                 "../catalo/images/xadv03.jpg"
             ],
+            type: "Scooter",
+            link: "/descriptPage/descript.html?id=4"
         },
 
         { 
@@ -55,6 +63,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 "../catalo/images/r04.jpg",
                 "../catalo/images/r05.jpg"
             ],
+            type: "Sportif",
+            link: "/descriptPage/descript.html?id=5"
         },
 
 
@@ -68,6 +78,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 "../catalo/images/tmax04.jpg",
                 "../catalo/images/tmax05.jpg"
             ],
+            type: "Scooter",
+            link: "/descriptPage/descript.html?id=6"
         },
 
         { 
@@ -78,6 +90,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 "../catalo/images/q02.jpg",
                 "../catalo/images/q03.jpg"
             ],
+            type: "Sportif",
+            link: "/descriptPage/descript.html?id=7"
         },
 
         { 
@@ -92,42 +106,61 @@ document.addEventListener("DOMContentLoaded", () => {
                 "../catalo/images/bmwe04.jpg",
                 "../catalo/images/bmwe07.jpg"
             ],
+            type: "Scooter",
+            link: "/descriptPage/descript.html?id=8"
         },
     ];
 
     const motoGrid = document.querySelector(".moto-grid");
+    const filterForm = document.querySelector("#filterForm");
 
-    const displayMoto = (moto) => {
+  // Fonction pour afficher les motos
+  const displayMotos = (filteredMotos) => {
+    motoGrid.innerHTML = ""; // Vider la grille actuelle
+    filteredMotos.forEach((moto) => {
         const motoCard = document.createElement("div");
         motoCard.classList.add("moto-card");
         motoCard.innerHTML = `
             <div class="image-container">
                 <img src="${moto.images[0]}" alt="${moto.name}" class="main-image">
-                <button class="nav-btn prev-btn">❮</button>
-                <button class="nav-btn next-btn">❯</button>
             </div>
             <div class="card-content">
                 <h3>${moto.name}</h3>
+                <p>${moto.type}</p>
             </div>
         `;
+        const motoLink = document.createElement("a");
+        motoLink.href = moto.link;
+        motoLink.appendChild(motoCard);
+        motoGrid.appendChild(motoLink);
+    });
+};
 
-        let currentImageIndex = 0;
-        const mainImage = motoCard.querySelector(".main-image");
-        const prevBtn = motoCard.querySelector(".prev-btn");
-        const nextBtn = motoCard.querySelector(".next-btn");
 
-        prevBtn.addEventListener("click", () => {
-            currentImageIndex = (currentImageIndex - 1 + moto.images.length) % moto.images.length;
-            mainImage.src = moto.images[currentImageIndex];
-        });
-
-        nextBtn.addEventListener("click", () => {
-            currentImageIndex = (currentImageIndex + 1) % moto.images.length;
-            mainImage.src = moto.images[currentImageIndex];
-        });
-
-        motoGrid.appendChild(motoCard);
-    };
-
-    motos.forEach(displayMoto);
+document.querySelector("#filterForm").addEventListener("submit", (event) => {
+    event.preventDefault(); // Empêche la soumission classique
+    const selectedType = document.querySelector("#type").value;
+    if (selectedType) {
+        window.location.href = `catalog.html?type=${selectedType}`;
+    } else {
+        alert("Veuillez sélectionner un type de moto.");
+    }
 });
+
+
+
+// Lire les paramètres d'URL
+const urlParams = new URLSearchParams(window.location.search);
+const selectedType = urlParams.get("type"); // Récupérer le type sélectionné
+
+// Filtrer les motos par type
+if (selectedType) {
+    const filteredMotos = motos.filter((moto) => moto.type === selectedType);
+    displayMotos(filteredMotos);
+} else {
+    // Afficher toutes les motos si aucun filtre n'est appliqué
+    displayMotos(motos);
+}
+
+});
+
