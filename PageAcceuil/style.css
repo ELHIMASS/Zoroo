@@ -1,6 +1,6 @@
 
 body{
-    background-image: url(../PageAcceuil/fira.png);
+    background-image: url(../PageAcceuil/raw.png);
     background-size: 100%;
     background-repeat: no-repeat;
 }
@@ -9,18 +9,25 @@ body{
 .partie02{
     display: flex;
     flex-direction: column;
+    margin-top: -200px;
+    box-shadow: 10px 10px 20px 10px rgba(0, 0, 0, 0.5);
+    
 }
 
 .partie02 h3{
-    color: black;
+    color: rgb(255, 255, 255);
     text-align: center;
+    background-color: black;
+    margin-left: 300px;
+    margin-right: 300px;
+
 }
 
 .prt1{
     display: flex;
     flex-direction: column;
     color: white;
-    margin-top: -20px;
+    margin-top:50px;
     justify-content: center;
     align-items: center;
     margin-bottom: 40px;
@@ -28,7 +35,7 @@ body{
 }
 
 .prt1 h1 {
-    color: black;
+    color: rgb(255, 255, 255);
 }
 
 .ptr2 {
@@ -36,18 +43,22 @@ body{
     flex-direction: row; 
     justify-content: space-between;
     justify-content: space-around;
-    margin-bottom: 25px
+    margin-bottom: 25px;
+    margin-top: 80px;
+
+    
 
 }
 
 .bouton1 {
     margin-left: 50px;
-    background-color: transparent;; 
-    color: rgb(13, 91, 194); 
+    background-color: rgb(13, 91, 194);; 
+    color: white; 
     padding: 9px 15px; 
     border-color: rgb(13, 91, 194);
     border-radius: 50px; 
     cursor: pointer;
+    margin-top: 80px;
 }
 .bouton1:hover{
     transform: scale(1.06);
@@ -93,3 +104,8 @@ body{
 .miniature{
     height: calc(70vh - 75px);
 }
+
+
+
+
+
