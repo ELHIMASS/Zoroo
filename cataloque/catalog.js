@@ -1,7 +1,3 @@
-
-
-
-
 document.addEventListener("DOMContentLoaded", () => {
     const motoGrid = document.querySelector(".moto-grid");
     const searchButton = document.querySelector("#searchButton");
@@ -38,8 +34,22 @@ document.addEventListener("DOMContentLoaded", () => {
     fetch("../cataloque/moto.json")
         .then((response) => response.json())
         .then((data) => {
-            // Afficher toutes les motos au chargement
-            displayMotos(data);
+            // Récupérer les paramètres de l'URL
+            const urlParams = new URLSearchParams(window.location.search);
+            const typeParam = urlParams.get("type") || ""; // Paramètre "type"
+
+            // Si un type est spécifié dans l'URL, filtrer les motos par ce type
+            const filteredMotos = typeParam 
+                ? data.filter((moto) => moto.type.toLowerCase() === typeParam.toLowerCase()) 
+                : data;
+
+            // Afficher les motos (filtrées ou non)
+            displayMotos(filteredMotos);
+
+            // Remplir le champ de sélection avec la valeur du type de l'URL, si présente
+            if (typeParam) {
+                typeSelect.value = typeParam;
+            }
 
             // Gérer la recherche lorsque l'utilisateur clique sur le bouton "Rechercher"
             searchButton.addEventListener("click", () => {
@@ -57,5 +67,5 @@ document.addEventListener("DOMContentLoaded", () => {
                 displayMotos(filteredMotos);
             });
         })
-        .catch((error) => console.error("Erreur lors du chargement des données JSON :", error));
+        .catch((error) => console.error("Erreur lors du chargement des données JSON :", error));
 });
