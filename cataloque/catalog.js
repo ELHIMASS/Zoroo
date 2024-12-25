@@ -67,5 +67,9 @@ document.addEventListener("DOMContentLoaded", () => {
                 displayMotos(filteredMotos);
             });
         })
+<<<<<<< HEAD
         .catch((error) => console.error("Erreur lors du chargement des données JSON :", error));
+=======
+        .catch((error) => console.error("Erreur lors du chargement des données JSON :", error));
+>>>>>>> dca6aad96a6dccf041ef78631baf26ac0b637417
 });

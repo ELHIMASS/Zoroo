@@ -92,5 +92,13 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"></script>
 
     <script src="/cataloque/catalog.js"></script>
+    <script>
+        document.querySelector("#searchButton").addEventListener("click", () => {
+            const type = document.querySelector("#moto-type").value; // Récupérer la valeur sélectionnée
+            const baseURL = "/cataloque/catalog.html"; // URL de base
+            const newURL = `${baseURL}?type=${encodeURIComponent(type)}`; // Construire l'URL avec le paramètre
+            window.location.href = newURL; // Rediriger vers la nouvelle URL
+        });
+    </script>
 </body>
 </html>
