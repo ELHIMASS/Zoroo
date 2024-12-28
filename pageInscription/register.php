@@ -1,4 +1,9 @@
 <?php
+
+header('Access-Control-Allow-Origin: *');
+header('Access-Control-Allow-Methods: POST');
+header('Access-Control-Allow-Headers: Content-Type');
+
 // Paramètres de connexion à la base de données
 $host = 'localhost';
 $dbname = 'inscription';

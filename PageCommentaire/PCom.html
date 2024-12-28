@@ -48,12 +48,12 @@
                 </ul>
                 
                 <form class="form-inline my-2 my-lg-0">
-                    <button class="btn btn-primary mr-2" type="button" onclick="window.location.href='#'">
-                        Connexion
-                    </button>
-                    <button class="btn btn-outline-primary" type="button" onclick="window.location.href='#'">
-                        Inscription
-                    </button>
+               
+                    <button id="loginButton" class="btn btn-primary mr-2" onclick="window.location.href='../pageIdentification/index.html'">Connexion</button>
+                    <button id="registerButton" class="btn btn-outline-primary" onclick="window.location.href='/pageIdentification/register.html'">Inscription</button>
+                    <p id="welcomeMessage" style="display: none;"></p>
+                    <button id="logoutButton" style="display: none;" onclick="logout()">Déconnexion</button>
+                
                 </form>
                 
             </div>
