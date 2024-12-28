@@ -76,11 +76,13 @@
 
 .bouton1:hover{
     transform: scale(1.06);
-    background-color: blue;
+    color: rgb(255, 255, 255);
+    background-color: rgb(0, 0, 0);
+    border:none;
 
 }
 .bouton2 {
-    background-color: blueviolet; 
+    background-color: rgb(101, 43, 226); 
     color: white; 
     padding: 7px 15px; 
     border: none;
@@ -293,6 +295,8 @@
         opacity: 0;
     }
   }
+
+  
   
   
 
