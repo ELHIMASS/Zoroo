@@ -4,13 +4,11 @@ body {
     margin: 0;
     padding: 0;
 }
-
 header {
-    background-color: #34c9e0;
-    color: white;
-    text-align: center;
-    padding: 10px 0;
+    background-color: #0a4c8e; /* Couleur de fond du header */
+    color: #333; /* Couleur du texte dans le header */
 }
+
 .image{
     position: absolute;
     top: 0;
@@ -73,3 +71,9 @@ button:hover {
     font-size: 14px;
     color: #888;
 }
+
+
+.deuxB{
+    display: flex;
+}
+
