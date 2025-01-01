@@ -8,6 +8,8 @@
 
     <title>Page de Contact</title>
 </head>
+
+
 <body>
     <!DOCTYPE html> <!--pour s'assurer que la page web est rendue correctement sur tous les navigateurs modernes-->
 <html lang="fr">
@@ -23,7 +25,7 @@
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             
             <a class="navbar-brand" href="#">
-                <img src="\moto_loc\motolog.png" alt="logo" style="height: 40px;"> <!-- Chemin relatif vers le logo -->
+                <img src="\motolog.png" alt="logo" style="height: 40px;"> <!-- Chemin relatif vers le logo -->
             </a>
             
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -55,12 +57,11 @@
                 </ul>
                 
                 <form class="form-inline my-2 my-lg-0">
-               
-                    <button id="loginButton" class="btn btn-primary mr-2" onclick="window.location.href='../pageIdentification/index.html'">Connexion</button>
-                    <button id="registerButton" class="btn btn-outline-primary" onclick="window.location.href='/pageIdentification/register.html'">Inscription</button>
-                    <p id="welcomeMessage" style="display: none;"></p>
-                    <button id="logoutButton" style="display: none;" onclick="logout()">Déconnexion</button>
-                
+                    <div class="buttonG">
+                        <button id="loginButton" class="btn btn-primary mr-2" onclick="window.location.href='../pageIdentification/index.html'">Connexion</button>
+                        <button id="registerButton" class="btn btn-outline-primary" onclick="window.location.href='/pageIdentification/register.html'">Inscription</button>
+      
+                    </div>              
                 </form>
                 
             </div>
