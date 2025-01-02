@@ -1,0 +1,296 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,900;1,900&display=swap');
+
+.partie02{
+    display: flex;
+    flex-direction: column;
+    margin-top: -200px;
+ 
+}
+
+.partie02 h3{
+    color: black;
+    text-align: center;
+    border-radius: 3rem;
+    
+
+}
+
+.mira{
+    position: absolute;
+    top: 650px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: rgb(255, 255, 255);
+    text-align: center;
+    font-size: 26px;
+    font-weight: bold;
+    background-color: rgb(255, 255, 255);
+   
+}
+
+.prt1{
+    display: flex;
+    flex-direction: column;
+    margin-top:50px;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 40px;
+    
+    
+}
+
+.prt1 h1 {
+    color: rgb(255, 255, 255);
+    text-align: center;
+}
+
+
+.ptr2 {
+    display: flex;
+    flex-direction: row; 
+    justify-content: space-between;
+    justify-content: space-around;
+    margin-bottom: 25px;
+    margin-top: 80px;
+    margin-top: 250px;
+}
+
+.bouton1 {
+    background-color: rgb(13, 91, 194); 
+    color: white; 
+    padding: 9px 15px; 
+    border-color: rgb(13, 91, 194);
+    border-radius: 50px; 
+    cursor: pointer;
+    margin-top: 80px;
+    position: absolute;
+    
+}
+
+
+.bouton1:hover{
+    transform: scale(1.06);
+    color: rgb(255, 255, 255);
+    background-color: rgb(0, 0, 0);
+    border:none;
+
+}
+.bouton2 {
+    background-color: rgb(101, 43, 226); 
+    color: white; 
+    padding: 7px 15px; 
+    border: none;
+    border-radius: 4px; 
+    cursor: pointer;
+}
+.partie03{
+    background-color: black;
+    display: flex;
+    justify-content: space-between;
+    justify-content: space-around;
+}
+
+.partie03 p{
+    color: white;
+}
+
+.p2{
+    font-size: 35px;
+}
+.p1{
+    font-size: 17px;
+    color: rgb(20, 115, 192);
+}
+
+.section3{
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+    justify-content: space-around;
+}
+
+
+
+
+
+.miniature{
+    height: calc(70vh - 75px);
+}
+
+.card{
+    box-shadow: 10px 10px 20px 10px rgba(0, 0, 0, 0.5);
+    /*opacity: 0;  Cache le texte avant l'animation */
+    /*transform: translateY(30px);  Déplace légèrement vers le bas */
+    /*transition: opacity 0.8s ease-out, transform 0.8s ease-out;  Animation fluide */ 
+}
+
+.card.show{
+    opacity: 1; /* Texte visible */
+    transform: translateY(0); /* Revient à sa position initiale */
+}
+.pero{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.what:hover {
+    transform: scale(1.1); /* Zoom léger au survol */
+}
+
+.gmail:hover {
+    transform: scale(1.1); /* Zoom léger au survol */
+}
+
+/* Parallax container */
+.parallax {
+    position: relative;
+    background-image: url('images/pp.png'); /* Remplacez par l'URL de votre image */
+    min-height: 500px;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+}
+
+.parallax1 {
+    position: relative;
+    background-image: url('images/vv.png'); /* Remplacez par l'URL de votre image */
+    min-height: 500px;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+}
+
+.what{
+    height: 60px;
+    margin-left: 95%;
+}
+
+.gmail{
+    height: 50px;
+    margin-left: 85%;
+}
+
+  
+  /* Section content */
+.parallax-content {
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: rgb(255, 255, 255);
+    text-align: center;
+    font-size: 26px;
+    font-weight: bold;
+    
+    border-radius: 1rem;
+    box-shadow: 10px 10px 20px 15px rgba(0, 0, 0, 0.5);
+    
+}
+
+.bar{
+    background-color: white;
+    height: 10%;
+    color: black;
+    font-size: 22px;
+    opacity: 0; /* Cache le texte avant l'animation */
+    transform: translateY(30px); /* Déplace légèrement vers le bas */
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out; /* Animation fluide */
+}
+.bar.show{
+    opacity: 1; /* Texte visible */
+    transform: translateY(0); /* Revient à sa position initiale */
+    
+}
+
+.textp{
+    position: absolute;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 100px;
+    font-style: italic;
+    margin-left: 27%;
+    margin-right: 27%;
+    margin-top: 120px;
+}
+
+.rod{
+    text-shadow: 
+    2px 2px 5px rgba(0, 0, 0, 0.5), /* Ombre principale */
+    -2px -2px 5px rgba(255, 255, 255, 0.5), /* Effet lumineux */
+    0px 0px 10px rgba(255, 255, 255, 0.7); /* Glow bleu */
+
+    
+    font-weight: bold;
+    border-right: 2px solid #fff; /* Curseur clignotant */
+    white-space: nowrap; /* Empêche le texte de passer à la ligne */
+    overflow: hidden; /* Cache le texte qui dépasse */
+    width: 0; /* Commence avec une largeur de 0 */
+    animation: typing 2s steps(30, end) forwards, blink-caret 0.5s step-end infinite;
+    
+}
+
+@keyframes typing {
+    from {
+        width: 25%;
+    }
+    to {
+        width: 600px; 
+        
+        /* Ajustez cette valeur pour correspondre à la longueur du texte */
+    }
+    
+}
+
+/* Animation pour le curseur clignotant */
+@keyframes blink-caret {
+    from, to {
+        border-color: transparent;
+    }
+    50% {
+        border-color: #515151;
+    }
+}
+
+
+.textp::after{
+    content: attr(text);
+    position: absolute;
+    z-index: 100;
+    top: 0;
+    left: 0;
+    color: transparent;
+    -webkit-text-stroke: 0.15vw black;
+}
+
+.patcha{
+    width: 9vw;
+    margin-top: -300px;
+    animation: motoAnimation 2s cubic-bezier(1, 1, 1, 1) alternate;
+    opacity: 0;
+}
+@keyframes motoAnimation {
+    0% {
+        transform: translateX(0);
+        opacity: 0;
+    }
+    10% {
+        transform: translateX(80px);
+        opacity: 1;
+    }
+
+
+    100% {
+        transform: translateX(700px);
+        opacity: 0;
+    }
+}
+
+.container{
+    text-align: center;
+}

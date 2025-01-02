@@ -5,15 +5,16 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <title>Page D'accueil</title>
 </head>
+    
 <header>
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         
-        <a class="navbar-brand" href="pageAcceuil.html">
-            <img src="motolog.png" alt="logo" style="height: 40px;">
+        <a class="navbar-brand" href="/home">
+            <img src="{{ url_for('static', filename='images/motolog.png') }}" alt="logoo" style="height: 40px;">
         </a>
         
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -25,7 +26,7 @@
             
             <ul class="navbar-nav mx-auto"> 
                 <li class="nav-item active">
-                    <a class="nav-link" href="pageAcceuil.html">Home<span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="/home">Home<span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item active">
                     <a class="nav-link" href="#">About us<span class="sr-only">(current)</span></a>
@@ -45,12 +46,12 @@
             </ul>
             
             <form class="form-inline my-2 my-lg-0">
-               
-                <button id="loginButton" class="btn btn-primary mr-2" onclick="window.location.href='../pageIdentification/index.html'">Connexion</button>
-                <button id="registerButton" class="btn btn-outline-primary" onclick="window.location.href='/pageIdentification/register.html'">Inscription</button>
+               {% block login %}
+                <a class="btn btn-primary mr-2" href="/connexion">Connexion</a>
+                <a class="btn btn-outline-primary" href="/inscription">Inscription</a>
                 <p id="welcomeMessage" style="display: none;"></p>
                 <button id="logoutButton" style="display: none;" onclick="logout()">Déconnexion</button>
-            
+                {% endblock %}
             </form>
             
         </div>
@@ -69,7 +70,7 @@
                 
             </div>
 
-            <img class="patcha" id="moto" src="/PageAcceuil/motobg.png" alt="">
+            <img class="patcha" id="moto" src="{{ url_for('static', filename='images/motobg.png') }}" alt="">
 
         </div>
         <div class="parallax-content">
@@ -93,7 +94,7 @@
         <div class="ptr2">
 
             <div class="card" style="width: 18rem;">
-                <img src="../catalo/images/bmw01.jpg" class="card-img-top" alt="...">
+                <img src="{{ url_for('static', filename='images/bmw01.jpg') }}" class="card-img-top" alt="...">
                 <div class="card-body">
                     <h5 class="card-title">BMW Gs 1250</h5>
                     <p class="card-text">une moto polyvalente et puissante, idéale pour les aventures tout-terrain et les longs trajets routiers.</p>
@@ -102,7 +103,7 @@
             </div>
 
             <div class="card" style="width: 18rem;">
-                <img src="../catalo/images/bmwe01.png" class="card-img-top" alt="...">
+                <img src="{{ url_for('static', filename='images/bmwe01.png') }}" class="card-img-top" alt="...">
                 <div class="card-body">
                     <h5 class="card-title">BMW CE 04</h5>
                     <p class="card-text"> un scooter électrique futuriste, combinant design innovant et performance pour une mobilité urbaine durable.</p>
@@ -111,7 +112,7 @@
             </div>
 
             <div class="card" style="width: 18rem;">
-                <img src="../catalo/images/tmax01.jpg" class="card-img-top" alt="...">
+                <img src="{{ url_for('static', filename='images/tmax01.jpg') }}" class="card-img-top" alt="...">
                 <div class="card-body">
                     <h5 class="card-title">Yamaha TMAX 560</h5>
                     <p class="card-text">un scooter sportif haut de gamme, offrant puissance, confort et agilité pour une conduite urbaine et sur route.</p>
@@ -145,24 +146,16 @@
        <div class="pero">
         
         <a href="https://wa.me/212684843584"  target="_blank">
-            <img src="/whatssap.png" class="what" alt="ww">
+            <img src="{{ url_for('static', filename='images/whatssap.png') }}" class="what" alt="ww">
         </a>
         <a href="mailto:ismail.elhimass@gmail.com?subject=Demande%20de%20renseignements&body=Bonjour,%0D%0A%0D%0AJe%20souhaite%20avoir%20plus%20d'informations."
         target="_blank">
-            <img src="/gmail.png" class="gmail" alt="ww">
+            <img src="{{ url_for('static', filename='images/gmail.png') }}" class="gmail" alt="ww">
         </a>
 
        </div>
     </div>
     
-    
-
-    
-
-
-
-    
-
 
     <div class="partie03" >
         <div>
