@@ -1,13 +1,20 @@
 <?php
+session_start();
+header('Content-Type: application/json');
 header('Access-Control-Allow-Origin: *');
 header('Access-Control-Allow-Methods: GET');
 header('Access-Control-Allow-Headers: Content-Type');
+header('Access-Control-Allow-Credentials: true');
 
-session_start(); // Démarrer la session
-
-if (isset($_SESSION['username'])) {
-    echo json_encode(['loggedIn' => true, 'username' => $_SESSION['username']]);
+if (isset($_SESSION['user'])) {
+    echo json_encode([
+        'loggedIn' => true,
+        'user' => $_SESSION['user']
+    ]);
 } else {
-    echo json_encode(['loggedIn' => false]);
+    echo json_encode([
+        'loggedIn' => false,
+        'user' => null
+    ]);
 }
 ?>

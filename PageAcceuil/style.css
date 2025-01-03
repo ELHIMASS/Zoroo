@@ -1,4 +1,3 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,900;1,900&display=swap');
 
 .partie02{
@@ -294,6 +293,29 @@
         transform: translateX(700px);
         opacity: 0;
     }
+  }
+
+  .auth-buttons {
+    display: flex;
+    align-items: center;
+  }
+
+  .guest-buttons, .user-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  #welcomeMessage {
+    color: #333;
+    font-weight: bold;
+    margin-right: 10px;
+  }
+
+  /* S'assurer que les éléments masqués ne prennent pas d'espace */
+  .guest-buttons[style*="display: none"],
+  .user-info[style*="display: none"] {
+    display: none !important;
   }
 
   

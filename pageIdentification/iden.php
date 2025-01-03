@@ -1,6 +1,7 @@
 <?php
+header('Content-Type: application/json');
 header('Access-Control-Allow-Origin: *');
-header('Access-Control-Allow-Methods: POST, OPTIONS');
+header('Access-Control-Allow-Methods: POST');
 header('Access-Control-Allow-Headers: Content-Type');
 
 session_start(); // Démarrer la session
@@ -14,7 +15,8 @@ try {
     $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8", $username_db, $password_db);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 } catch (PDOException $e) {
-    die(json_encode(['message' => 'Erreur de connexion à la base de données : ' . $e->getMessage()]));
+    echo json_encode(['message' => 'Erreur de connexion à la base de données : ' . $e->getMessage()]);
+    exit;
 }
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -27,7 +29,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $result = $stmt->fetch(PDO::FETCH_ASSOC);
 
     if ($result && password_verify($password, $result['password'])) {
-        $_SESSION['username'] = $username; // Stocker l'utilisateur dans la session
+        $_SESSION['username'] = $username; // Stocke l'utilisateur dans la session
         echo json_encode(['success' => true, 'message' => 'Connexion réussie']);
     } else {
         echo json_encode(['success' => false, 'message' => 'Nom d\'utilisateur ou mot de passe incorrect']);

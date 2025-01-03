@@ -1,10 +1,16 @@
 <?php
+session_start();
+header('Content-Type: application/json');
 header('Access-Control-Allow-Origin: *');
 header('Access-Control-Allow-Methods: POST');
 header('Access-Control-Allow-Headers: Content-Type');
+header('Access-Control-Allow-Credentials: true');
 
-session_start(); // Démarrer la session
-session_destroy(); // Détruire toutes les données de la session
+$_SESSION = array();
+session_destroy();
 
-echo json_encode(['success' => true, 'message' => 'Déconnexion réussie']);
+echo json_encode([
+    'success' => true,
+    'message' => 'Déconnexion réussie'
+]);
 ?>
