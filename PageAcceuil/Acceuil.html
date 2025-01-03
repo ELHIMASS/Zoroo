@@ -39,19 +39,28 @@
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="/cataloque/catalog.html">Moto Disponible</a>
-                        <a class="dropdown-item" href="#">Rechercher une moto</a>
+                        <a class="dropdown-item" href="#">Mes réservations</a>
                     </div>
                 </li>
             </ul>
             
-            <form class="form-inline my-2 my-lg-0">
-               
-                <button id="loginButton" class="btn btn-primary mr-2" onclick="window.location.href='../pageIdentification/index.html'">Connexion</button>
-                <button id="registerButton" class="btn btn-outline-primary" onclick="window.location.href='/pageIdentification/register.html'">Inscription</button>
-                <p id="welcomeMessage" ></p>
-                <button id="logoutButton" onclick="logout()">Déconnexion</button>
-            
-            </form>
+            <div class="auth-buttons">
+                <div class="guest-buttons" id="guestButtons">
+                    <button id="loginButton" class="btn btn-primary mr-2" onclick="window.location.href='../pageIdentification/index.html'">
+                        Connexion
+                    </button>
+                    <button id="registerButton" class="btn btn-outline-primary" onclick="window.location.href='../pageIdentification/register.html'">
+                        Inscription
+                    </button>
+                </div>
+                
+                <div class="user-info" id="userInfo" style="display: none;">
+                    <span id="welcomeMessage" class="mr-3"></span>
+                    <button id="logoutButton" class="btn btn-outline-danger" onclick="logout()">
+                        Déconnexion
+                    </button>
+                </div>
+            </div>
             
         </div>
     </nav>
