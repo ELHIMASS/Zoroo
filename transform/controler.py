@@ -24,15 +24,19 @@ class User(db.Model):
 with app.app_context():
     db.create_all()
 
-@app.route("/")
-def base():
-    return redirect(url_for("home"))
+
 
 @app.route("/home")
 def home():
     if "username" in session:  # Vérifie si l'utilisateur est connecté
         return render_template("conected.html", username=session["username"])
     return render_template("pageAcceuil.html")
+
+@app.route("/Contact")
+def Contact():
+    if "username" in session:  # Vérifie si l'utilisateur est connecté
+        return render_template("conected.html", username=session["username"])
+    return render_template("PContact.html")
 
 @app.route("/inscription", methods=["POST", "GET"])
 def inscription():
