@@ -42,11 +42,13 @@
                 </ul>
                 
                 <form class="form-inline my-2 my-lg-0">
-                    <button id="loginButton" class="btn btn-primary mr-2" onclick="window.location.href='../pageIdentification/index.html'">Connexion</button>
-                    <button id="registerButton" class="btn btn-outline-primary" onclick="window.location.href='/pageIdentification/register.html'">Inscription</button>
-                    <p id="welcomeMessage" style="display: none;"></p>
-                    <button id="logoutButton" style="display: none;" onclick="logout()">Déconnexion</button>
-                </form>
+                    {% block login %}
+                     <a class="btn btn-primary mr-2" href="/connexion">Connexion</a>
+                     <a class="btn btn-outline-primary" href="/inscription">Inscription</a>
+                     <p id="welcomeMessage" style="display: none;"></p>
+                     <button id="logoutButton" style="display: none;" onclick="logout()">Déconnexion</button>
+                     {% endblock %}
+                 </form>
             </div>
         </nav>
     </header>
@@ -75,7 +77,7 @@
                 </ul>
                 
                 <a class="btn-prix" id="moto-price">{{ moto.price }}</a>
-                <button class="LOUER" onclick="window.location.href='/reservation/{{ moto.id }}'">LOUER MAINTENANT</button>
+                <button class="LOUER" onclick="window.location.href='/process_payment'">LOUER MAINTENANT</button>
             </div>
         </div>
     </main>
