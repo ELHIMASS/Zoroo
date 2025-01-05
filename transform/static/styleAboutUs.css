@@ -1,0 +1,50 @@
+.bg-gradient {
+    background: linear-gradient(to right, #737973, #2196F3);
+}
+.partie01{
+    text-align: center;
+    padding: 40px;
+}
+
+.partie02{
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    justify-content: space-around;
+}
+
+.row{
+    text-align: center;
+    align-items: center;
+    background-color: rgb(228, 233, 232);
+    display: flex;
+    flex-direction: column;
+    border-radius: 5%;
+    box-shadow: 5px 10px 20px rgba(0, 0, 0, 0.5);
+    width: 30%;
+    padding: 60px;
+    position: relative;  
+}
+
+
+.row:hover{
+    background-color: rgb(24, 135, 240);
+}
+
+.partie03{
+    background-color: black;
+    display: flex;
+    justify-content: space-between;
+    justify-content: space-around;
+    margin-top: 10%;
+}
+
+.partie03 p{
+    color: white;
+}
+
+.p1{
+    font-size: 17px;
+    color: rgb(20, 115, 192);
+}

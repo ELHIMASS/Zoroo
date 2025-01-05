@@ -1,20 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-    <title>Page D'accueil</title>
+    <title>About us</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styleAboutUs.css') }}">  
 </head>
-    
-<header>
+<body class="bg-gradient">
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         
         <a class="navbar-brand" href="/home">
-            <img src="{{ url_for('static', filename='images/motolog.png') }}" alt="logoo" style="height: 40px;">
+            <img src="{{ url_for('static', filename='images/motolog.png') }}" alt="logo" style="height: 40px;">
         </a>
         
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -46,116 +44,60 @@
             </ul>
             
             <form class="form-inline my-2 my-lg-0">
-               {% block login %}
+               
+                {% block login %}
                 <a class="btn btn-primary mr-2" href="/connexion">Connexion</a>
                 <a class="btn btn-outline-primary" href="/inscription">Inscription</a>
                 <p id="welcomeMessage" style="display: none;"></p>
                 <button id="logoutButton" style="display: none;" onclick="logout()">Déconnexion</button>
                 {% endblock %}
+            
             </form>
             
         </div>
     </nav>
 
-    
-</header>
-<body>
-    
-
-
-    <div class="parallax">
-        <div class="textp">
-            <div class="rod">
-                MOTO LOC
-                
-            </div>
-
-            <img class="patcha" id="moto" src="{{ url_for('static', filename='images/motobg.png') }}" alt="">
-
-        </div>
-        <div class="parallax-content">
-            La liberté sur deux roues, à portée de main !
-        </div>
+    <div class="partie01">
+        <h1>ABOUT US</h1>
+        <p>Bienvenue sur Moto_loc, votre partenaire de confiance pour la location de motos.
+            Passionnés par l'aventure et la liberté qu'offrent les deux-roues, nous mettons à votre disposition une large gamme de motos adaptées à tous vos besoins,
+            qu'il s'agisse d'une escapade en ville, d'une virée sur les routes panoramiques ou d'un road trip de plusieurs jours. Avec un service client dédié,
+            des équipements de qualité et des tarifs compétitifs, notre mission est de vous offrir une expérience de conduite inoubliable,
+            en toute sécurité et sans compromis. Explorez le monde, une route à la fois !</p>
     </div>
 
     <div class="partie02">
-
-        <div class="prt1">
-           
-            
-            <button class="bouton1" type="button" onclick="window.location.href='#'">
-                Louer votre moto
-            </button>
-        </div>
-        <div>
-            <h3 class="mira">Les moto les plus populaires :</h3>
-        </div>
-       
-        <div class="ptr2">
-
-            <div class="card" style="width: 18rem;">
-                <img src="{{ url_for('static', filename='images/bmw01.jpg') }}" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">BMW Gs 1250</h5>
-                    <p class="card-text">une moto polyvalente et puissante, idéale pour les aventures tout-terrain et les longs trajets routiers.</p>
-                    <a href="#" class="btn btn-primary">Voir description</a>
-                </div>
-            </div>
-
-            <div class="card" style="width: 18rem;">
-                <img src="{{ url_for('static', filename='images/bmwe01.png') }}" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">BMW CE 04</h5>
-                    <p class="card-text"> un scooter électrique futuriste, combinant design innovant et performance pour une mobilité urbaine durable.</p>
-                    <a href="#" class="btn btn-primary">Voir description</a>
-                </div>
-            </div>
-
-            <div class="card" style="width: 18rem;">
-                <img src="{{ url_for('static', filename='images/tmax01.jpg') }}" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Yamaha TMAX 560</h5>
-                    <p class="card-text">un scooter sportif haut de gamme, offrant puissance, confort et agilité pour une conduite urbaine et sur route.</p>
-                    <a href="#" class="btn btn-primary">Voir description</a>
-                </div>
-            </div>
-
+        <div class="row">
+            <img src="{{ url_for('static', filename='images/book.png') }}" alt="logo" style="height: 40px; width: 40px; justify-content: center;">
+            <h3>Notre mission</h3>
+            <p>Chez Moto_Loc, notre mission est de rendre la liberté des deux-roues accessible à tous.
+                Nous nous engageons à fournir des motos fiables, bien entretenues et adaptées à chaque aventure,
+                que vous soyez novice ou motard expérimenté. En favorisant la découverte, la mobilité et le plaisir de conduire,
+                nous aspirons à créer des expériences uniques sur les routes,
+                tout en garantissant un service de qualité et un engagement envers la sécurité et l’environnement. Moto_Loc,
+                c’est bien plus qu’une location : c’est le début de votre prochaine aventure.</p>
         </div>
 
-
-        <div >
-
-            <div class="parallax1">
-
-
-
-            </div>
-
+        <div class="row">
+            <img src="{{ url_for('static', filename='images/word.png') }}" alt="logo" style="height: 40px; width: 40px;">
+            <h3>Notre vision</h3>
+            <p>Chez Moto_Loc, nous rêvons d’un monde où chaque passionné de moto peut vivre la liberté de la route,
+                peu importe où il se trouve. Nous aspirons à devenir le leader incontournable de la location de motos,
+                en combinant innovation, durabilité et excellence. En encourageant un mode de transport plus flexible et écoresponsable,
+                nous souhaitons non seulement enrichir les expériences de voyage,
+                mais aussi contribuer à un avenir où la mobilité est synonyme d’aventure et de respect pour la planète. Moto_Loc, vers un horizon sans limites.</p>
         </div>
-  
+
+        <div class="row">
+            <img src="{{ url_for('static', filename='images/pen.png') }}" alt="logo" style="height: 40px; width: 40px;">
+            <h3>Nos réalisations</h3>
+            <p>Depuis sa création, Moto_Loc s’est imposé comme un acteur de référence dans le domaine de la location de motos.
+                Avec des milliers de clients satisfaits à travers le pays, nous avons développé un réseau de partenaires solides et une flotte diversifiée
+                pour répondre à tous les besoins. Nous sommes fiers d’avoir participé à des événements majeurs pour la communauté motarde
+                et d’avoir contribué à faire découvrir des itinéraires uniques à nos clients. Grâce à notre engagement pour la qualité et l’innovation,
+                Moto_Loc continue d’évoluer pour offrir des expériences toujours plus mémorables.</p>
+        </div>
     </div>
-
-
-
-
-
-    
-    
-    <div class="container my-5">
-        <h2>Découvrez nos services</h2>
-       <div class="pero">
-        
-        <a href="https://wa.me/212684843584"  target="_blank">
-            <img src="{{ url_for('static', filename='images/whatssap.png') }}" class="what" alt="ww">
-        </a>
-        <a href="mailto:ismail.elhimass@gmail.com?subject=Demande%20de%20renseignements&body=Bonjour,%0D%0A%0D%0AJe%20souhaite%20avoir%20plus%20d'informations."
-        target="_blank">
-            <img src="{{ url_for('static', filename='images/gmail.png') }}" class="gmail" alt="ww">
-        </a>
-
-       </div>
-    </div>
-    
 
     <div class="partie03" >
         <div>
@@ -177,8 +119,10 @@
             <p>plus d'info</p>
         </div>
     </div>
+
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
 </body>
 </html>

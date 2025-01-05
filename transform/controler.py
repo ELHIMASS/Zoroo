@@ -24,7 +24,9 @@ class User(db.Model):
 with app.app_context():
     db.create_all()
 
-
+@app.route("/")
+def s():
+     return redirect(url_for("home"))
 
 @app.route("/home")
 def home():
@@ -34,8 +36,8 @@ def home():
 
 @app.route("/Contact")
 def Contact():
-    if "username" in session:  # Vérifie si l'utilisateur est connecté
-        return render_template("conected.html", username=session["username"])
+    if "username" in session:
+        return render_template("PContactCon.html", username=session["username"])
     return render_template("PContact.html")
 
 @app.route("/inscription", methods=["POST", "GET"])
@@ -84,6 +86,13 @@ def connexion():
             return redirect(url_for("connexion"))
 
     return render_template("connection.html")
+
+@app.route("/AboutUs")
+def AboutUs():
+    if "username" in session:  # Vérifie si l'utilisateur est connecté
+        return render_template("AboutUsCon.html", username=session["username"])
+    return render_template("pageAboutUs.html")
+
 
 @app.route("/logout")
 def logout():
