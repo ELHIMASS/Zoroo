@@ -2,6 +2,8 @@ from flask import Flask, request, render_template, session, redirect, url_for, f
 from flask_sqlalchemy import SQLAlchemy
 from werkzeug.security import generate_password_hash, check_password_hash
 from datetime import timedelta
+import json
+import os
 
 app = Flask(__name__)
 
@@ -97,6 +99,59 @@ def confirmer():
 def logout():
     session.clear()  # Supprime toutes les données de la session
     return redirect(url_for("home"))
+
+@app.route('/catalogue', methods=['GET', 'POST'])
+def catalogue():
+    # Chemin du fichier JSON
+    json_path = os.path.join(app.root_path, 'static/json/moto.json')
+
+    # Charger les données depuis le fichier JSON
+    try:
+        with open(json_path, 'r', encoding='utf-8') as file:
+            motos = json.load(file)
+    except FileNotFoundError:
+        return "Fichier JSON introuvable.", 404
+    except json.JSONDecodeError:
+        return "Erreur de lecture du fichier JSON.", 500
+
+    # Récupérer les paramètres de recherche
+    moto_type = request.args.get('type', '').lower()
+    search_query = request.args.get('search', '').lower()
+
+    # Filtrer les motos en fonction des paramètres
+    filtered_motos = [
+        moto for moto in motos
+        if (not moto_type or moto['type'].lower() == moto_type) and
+           (not search_query or search_query in moto['name'].lower())
+    ]
+
+    # Rendre le template avec les motos filtrées
+    return render_template('catalog.html', motos=filtered_motos)
+
+@app.route('/moto_details')
+def moto_details():
+    # Récupérer l'ID de la moto depuis l'URL
+    moto_id = request.args.get('id', type=int)
+
+    json_path = os.path.join(app.root_path, 'static/json/dascription.json')
+
+    # Charger les données depuis le fichier JSON
+    try:
+        with open(json_path, 'r', encoding='utf-8') as file:
+            motos_data = json.load(file)
+    except FileNotFoundError:
+        return "Fichier JSON introuvable.", 404
+    except json.JSONDecodeError:
+        return "Erreur de lecture du fichier JSON.", 500
+
+    # Trouver la moto par son ID
+    moto = next((m for m in motos_data if m['id'] == moto_id), None)
+
+    if moto:
+        return render_template('descript.html', moto=moto)
+    else:
+        return "Moto introuvable", 404
+
 
 if __name__ == "__main__":
     app.run(debug=True)
