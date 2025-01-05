@@ -50,13 +50,11 @@ def inscription():
 
         # Vérification des mots de passe
         if password != confirm_password:
-            flash("Les mots de passe ne correspondent pas.", "error")
             return redirect(url_for("inscription"))
 
         # Vérifier si le nom d'utilisateur ou l'email existe déjà
         existing_user = User.query.filter((User.username == username) | (User.email == email)).first()
         if existing_user:
-            flash("Nom d'utilisateur ou email déjà utilisé.", "error")
             return redirect(url_for("inscription"))
 
         # Hachage du mot de passe et sauvegarde dans la base
@@ -64,7 +62,6 @@ def inscription():
         db.session.add(new_user)
         db.session.commit()
 
-        flash("Inscription réussie ! Veuillez vous connecter.", "success")
         return redirect(url_for("connexion"))
 
     return render_template("inscription.html")
@@ -79,25 +76,26 @@ def connexion():
         user = User.query.filter_by(username=username).first()
         if user and (user.password == password):
             session["username"] = user.username
-            flash("Connexion réussie !", "success")
             return redirect(url_for("home"))
         else:
-            flash("Nom d'utilisateur ou mot de passe incorrect.", "error")
             return redirect(url_for("connexion"))
 
     return render_template("connection.html")
 
 @app.route("/AboutUs")
 def AboutUs():
-    if "username" in session:  # Vérifie si l'utilisateur est connecté
+    if "username" in session:  
         return render_template("AboutUsCon.html", username=session["username"])
     return render_template("pageAboutUs.html")
 
+@app.route("/confirm")
+def confirmer():
+    
+    return render_template("Pconf.html")
 
 @app.route("/logout")
 def logout():
     session.clear()  # Supprime toutes les données de la session
-    flash("Vous êtes déconnecté.", "info")
     return redirect(url_for("home"))
 
 if __name__ == "__main__":
