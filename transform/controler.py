@@ -153,7 +153,7 @@ def moto_details():
         return "Moto introuvable", 404
     
     
-@app.route('/processpayment', methods=['POST'])
+@app.route('/process_payment', methods=['POST'])
 def process_payment():
     # Récupérer les données du formulaire
     name = request.form['name']
