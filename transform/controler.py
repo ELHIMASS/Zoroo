@@ -151,6 +151,25 @@ def moto_details():
         return render_template('descript.html', moto=moto)
     else:
         return "Moto introuvable", 404
+    
+    
+@app.route('/process_payment', methods=['POST'])
+def process_payment():
+    # Récupérer les données du formulaire
+    name = request.form['name']
+    card_number = request.form['card_number']
+    expiry_date = request.form['expiry_date']
+    cvv = request.form['cvv']
+
+    # Logique de traitement du paiement
+    if not name or not card_number or not expiry_date or not cvv:
+        return "Erreur : Tous les champs sont requis", 400
+
+    # Simuler un succès (ajoutez votre logique de paiement ici)
+    return render_template('succes.html', name=name)
+
+if __name__ == '__main__':
+    app.run(debug=True)
 
 
 if __name__ == "__main__":
