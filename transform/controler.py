@@ -59,7 +59,6 @@ def inscription():
         if existing_user:
             return redirect(url_for("inscription"))
 
-        # Hachage du mot de passe et sauvegarde dans la base
         new_user = User(username=username, email=email, password=password)
         db.session.add(new_user)
         db.session.commit()
@@ -153,24 +152,28 @@ def moto_details():
         return "Moto introuvable", 404
     
     
-@app.route('/process_payment', methods=['POST'])
+@app.route('/procesPayment', methods=['GET', 'POST'])
 def process_payment():
-    # Récupérer les données du formulaire
-    name = request.form['name']
-    card_number = request.form['card_number']
-    expiry_date = request.form['expiry_date']
-    cvv = request.form['cvv']
+    if request.method == 'POST':
+        # Récupérer les données du formulaire
+        name = request.form.get('name')
+        card_number = request.form.get('card_number')
+        expiry_date = request.form.get('expiry_date')
+        cvv = request.form.get('cvv')
 
-    # Logique de traitement du paiement
-    if not name or not card_number or not expiry_date or not cvv:
-        return "Erreur : Tous les champs sont requis", 400
+       
+        if not name or not card_number or not expiry_date or not cvv:
+            return "Erreur : Tous les champs sont requis", 400
 
-    # Simuler un succès (ajoutez votre logique de paiement ici)
-    return render_template('succes.html', name=name)
+        if not card_number.isdigit() or len(card_number) != 16:
+            return "Erreur : Numéro de carte invalide", 400
 
-if __name__ == '__main__':
-    app.run(debug=True)
+        if not cvv.isdigit() or len(cvv) != 3:
+            return "Erreur : CVV invalide", 400
 
+        return render_template('succes.html', name=name)
+
+    return render_template('payment.html')
 
 if __name__ == "__main__":
     app.run(debug=True)
