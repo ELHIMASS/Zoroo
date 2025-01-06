@@ -32,14 +32,10 @@ def s():
 
 @app.route("/home")
 def home():
-    if "username" in session:  # Vérifie si l'utilisateur est connecté
-        return render_template("conected.html", username=session["username"])
     return render_template("pageAcceuil.html")
 
 @app.route("/Contact")
 def Contact():
-    if "username" in session:
-        return render_template("PContactCon.html", username=session["username"])
     return render_template("PContact.html")
 
 @app.route("/inscription", methods=["POST", "GET"])
@@ -76,6 +72,7 @@ def connexion():
         # Recherche de l'utilisateur dans la base
         user = User.query.filter_by(username=username).first()
         if user and (user.password == password):
+            session.permanent = True
             session["username"] = user.username
             return redirect(url_for("home"))
         else:
@@ -85,13 +82,10 @@ def connexion():
 
 @app.route("/AboutUs")
 def AboutUs():
-    if "username" in session:  
-        return render_template("AboutUsCon.html", username=session["username"])
     return render_template("pageAboutUs.html")
 
 @app.route("/confirm")
 def confirmer():
-    
     return render_template("Pconf.html")
 
 @app.route("/logout")
@@ -121,11 +115,10 @@ def catalogue():
     filtered_motos = [
         moto for moto in motos
         if (not moto_type or moto['type'].lower() == moto_type) and
-           (not search_query or search_query in moto['name'].lower())
+        (not search_query or search_query in moto['name'].lower())
     ]
 
-    # Rendre le template avec les motos filtrées
-    return render_template('catalog.html', motos=filtered_motos)
+    return render_template("catalog.html", motos=filtered_motos)
 
 @app.route('/moto_details')
 def moto_details():

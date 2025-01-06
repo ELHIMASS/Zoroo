@@ -58,9 +58,26 @@
                 
                 <form class="form-inline my-2 my-lg-0">
                 {% block login %}
-                <a class="btn btn-primary mr-2" href="/connexion">Connexion</a>
-                <a class="btn btn-outline-primary" href="/inscription">Inscription</a>
-                {% endblock %}              
+                    {% if 'username' in session %}
+                        <!-- Si l'utilisateur est connecté -->
+                        <div class="dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                {{ session['username'] }} <!-- Afficher le nom de l'utilisateur -->
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="/reservations">Mes réservations</a>
+                                <a class="dropdown-item" href="/logout">Déconnexion</a>
+                            </div>
+                            <div style="width: 150px;">
+            
+                            </div>
+                        </div>
+                    {% else %}
+                        <!-- Si l'utilisateur n'est pas connecté -->
+                        <a class="btn btn-primary mr-2" href="/connexion">Connexion</a>
+                        <a class="btn btn-outline-primary" href="/inscription">Inscription</a>
+                    {% endif %}
+                {% endblock %}             
                 </form>
                 
             </div>
