@@ -1,30 +1,37 @@
 from flask import Flask, request, render_template, session, redirect, url_for, flash
-from flask_sqlalchemy import SQLAlchemy
 from werkzeug.security import generate_password_hash, check_password_hash
 from datetime import timedelta
 import json
 import os
+from pymongo import MongoClient
 
 app = Flask(__name__)
 
-
-app.secret_key = "super secret key" 
+# Configuration de l'application
+app.secret_key = "super secret key"
 app.permanent_session_lifetime = timedelta(minutes=5)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+mysqlconnector://root:@localhost/inscription'
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
-db = SQLAlchemy(app)
+# Configuration de MongoDB
+MONGO_URI = "mongodb+srv://ismailelhimass:Ismail2004@cluster0.lq9si.mongodb.net/"
 
+client = MongoClient(MONGO_URI)
+db = client['inscription']  # Base de données MongoDB
+users_collection = db['users']  # Collection pour les utilisateurs
 
-class User(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    username = db.Column(db.String(80), unique=True, nullable=False)
-    email = db.Column(db.String(120), unique=True, nullable=False)
-    password = db.Column(db.String(255), nullable=False)
+class User:
+    def __init__(self, username, email, password):
+        self.username = username
+        self.email = email
+        self.password = password
 
-# Crée la base de données et la table si elles n'existent pas
-with app.app_context():
-    db.create_all()
+    def to_dict(self):
+        """Convertit l'objet User en dictionnaire pour MongoDB."""
+        return {
+            "username": self.username,
+            "email": self.email,
+            "password": self.password,
+        }
+
 
 @app.route("/")
 def s():
@@ -46,22 +53,28 @@ def inscription():
         password = request.form.get("password")
         confirm_password = request.form.get("confirm-password")
 
-       
         if password != confirm_password:
+            flash("Les mots de passe ne correspondent pas.")
             return redirect(url_for("inscription"))
 
-       
-        existing_user = User.query.filter((User.username == username) | (User.email == email)).first()
+        # Vérifier si l'utilisateur existe déjà
+        existing_user = users_collection.find_one({"$or": [{"username": username}, {"email": email}]})
         if existing_user:
+            flash("Nom d'utilisateur ou email déjà utilisé.")
             return redirect(url_for("inscription"))
 
-        new_user = User(username=username, email=email, password=password)
-        db.session.add(new_user)
-        db.session.commit()
+        # Hash du mot de passe
+        hashed_password = generate_password_hash(password)
 
+        # Créer un nouvel utilisateur
+        new_user = {"username": username, "email": email, "password": hashed_password}
+        users_collection.insert_one(new_user)
+
+        flash("Inscription réussie !")
         return redirect(url_for("connexion"))
 
     return render_template("inscription.html")
+
 
 @app.route("/connexion", methods=["POST", "GET"])
 def connexion():
@@ -69,15 +82,19 @@ def connexion():
         username = request.form.get("username")
         password = request.form.get("password")
 
-        user = User.query.filter_by(username=username).first()
-        if user and (user.password == password):
+        # Rechercher l'utilisateur dans MongoDB
+        user = users_collection.find_one({"username": username})
+        if user and check_password_hash(user["password"], password):
             session.permanent = True
-            session["username"] = user.username
+            session["username"] = user["username"]
+            flash("Connexion réussie !")
             return redirect(url_for("home"))
         else:
+            flash("Nom d'utilisateur ou mot de passe incorrect.")
             return redirect(url_for("connexion"))
 
     return render_template("connection.html")
+
 
 @app.route("/AboutUs")
 def AboutUs():
