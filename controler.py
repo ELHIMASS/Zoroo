@@ -7,15 +7,15 @@ import os
 
 app = Flask(__name__)
 
-# Configuration de l'application et de la base de données MySQL
-app.secret_key = "super secret key"  # Remplacez par une clé sécurisée
+
+app.secret_key = "super secret key" 
 app.permanent_session_lifetime = timedelta(minutes=5)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+mysqlconnector://root:@localhost/inscription'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
 
-# Modèle de données pour la table `users`
+
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(80), unique=True, nullable=False)
@@ -46,11 +46,11 @@ def inscription():
         password = request.form.get("password")
         confirm_password = request.form.get("confirm-password")
 
-        # Vérification des mots de passe
+       
         if password != confirm_password:
             return redirect(url_for("inscription"))
 
-        # Vérifier si le nom d'utilisateur ou l'email existe déjà
+       
         existing_user = User.query.filter((User.username == username) | (User.email == email)).first()
         if existing_user:
             return redirect(url_for("inscription"))
@@ -69,7 +69,6 @@ def connexion():
         username = request.form.get("username")
         password = request.form.get("password")
 
-        # Recherche de l'utilisateur dans la base
         user = User.query.filter_by(username=username).first()
         if user and (user.password == password):
             session.permanent = True
@@ -84,21 +83,21 @@ def connexion():
 def AboutUs():
     return render_template("pageAboutUs.html")
 
+
 @app.route("/confirm")
 def confirmer():
     return render_template("Pconf.html")
 
 @app.route("/logout")
 def logout():
-    session.clear()  # Supprime toutes les données de la session
+    session.clear()  
     return redirect(url_for("home"))
 
 @app.route('/catalogue', methods=['GET', 'POST'])
 def catalogue():
-    # Chemin du fichier JSON
+    
     json_path = os.path.join(app.root_path, 'static/json/moto.json')
 
-    # Charger les données depuis le fichier JSON
     try:
         with open(json_path, 'r', encoding='utf-8') as file:
             motos = json.load(file)
