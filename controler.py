@@ -25,6 +25,16 @@ class User(db.Model):
 # Crée la base de données et la table si elles n'existent pas
 with app.app_context():
     db.create_all()
+class Reservation(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+    moto_name = db.Column(db.String(255), nullable=False)
+    moto_id = db.Column(db.Integer, nullable=False)
+    user = db.relationship('User', backref=db.backref('reservations', lazy=True))
+
+# Crée la base de données et les tables
+with app.app_context():
+    db.create_all()
 
 @app.route("/")
 def s():
@@ -119,14 +129,12 @@ def catalogue():
 
     return render_template("catalog.html", motos=filtered_motos)
 
-@app.route('/moto_details')
+@app.route('/moto_details', methods=['GET', 'POST'])
 def moto_details():
-    # Récupérer l'ID de la moto depuis l'URL
     moto_id = request.args.get('id', type=int)
 
+    # Charger les informations de la moto depuis le fichier JSON
     json_path = os.path.join(app.root_path, 'static/json/dascription.json')
-
-    # Charger les données depuis le fichier JSON
     try:
         with open(json_path, 'r', encoding='utf-8') as file:
             motos_data = json.load(file)
@@ -135,25 +143,38 @@ def moto_details():
     except json.JSONDecodeError:
         return "Erreur de lecture du fichier JSON.", 500
 
-    # Trouver la moto par son ID
+    # Trouver la moto correspondante
     moto = next((m for m in motos_data if m['id'] == moto_id), None)
 
     if moto:
+        # Si la méthode est POST, ajouter une réservation
+        if request.method == 'POST':
+            if 'username' in session:
+                user = User.query.filter_by(username=session['username']).first()
+                if user:
+                    new_reservation = Reservation(user_id=user.id, moto_name=moto['name'], moto_id=moto['id'])
+                    db.session.add(new_reservation)
+                    db.session.commit()
+                    flash("Moto réservée avec succès", "success")
+                    return redirect(url_for('reservations'))
+            else:
+                flash("Veuillez vous connecter pour réserver.", "warning")
+                return redirect(url_for('connexion'))
+
         return render_template('descript.html', moto=moto)
     else:
         return "Moto introuvable", 404
-    
+
+
     
 @app.route('/procesPayment', methods=['GET', 'POST'])
 def process_payment():
     if request.method == 'POST':
-        # Récupérer les données du formulaire
         name = request.form.get('name')
         card_number = request.form.get('card_number')
         expiry_date = request.form.get('expiry_date')
         cvv = request.form.get('cvv')
 
-       
         if not name or not card_number or not expiry_date or not cvv:
             return "Erreur : Tous les champs sont requis", 400
 
@@ -166,6 +187,19 @@ def process_payment():
         return render_template('succes.html', name=name)
 
     return render_template('payment.html')
+
+@app.route('/reservations')
+def reservations():
+    if 'username' not in session:
+        return redirect(url_for('connexion'))
+    
+    user = User.query.filter_by(username=session['username']).first()
+    if user:
+        reservations = Reservation.query.filter_by(user_id=user.id).all()
+        return render_template('reservations.html', reservations=reservations)
+    else:
+        return redirect(url_for('connexion'))
+
 
 if __name__ == "__main__":
     app.run(debug=True)
