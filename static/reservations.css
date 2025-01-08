@@ -1,0 +1,108 @@
+/* Reset global settings */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Corps de la page */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #241111;
+    color: #333;
+}
+
+/* Style pour l'en-tête */
+header {
+    background-color: #fff;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    font-size: 2rem;
+    color: #b26c16;
+    margin: 0;
+}
+
+/* Conteneur principal pour centrer les éléments */
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 20px;
+    margin-top: 30px;
+}
+
+/* Style du tableau */
+table {
+    width: 80%;
+    max-width: 800px;
+    margin: 0 auto;
+    border-collapse: collapse;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+/* En-tête du tableau */
+table th {
+    background-color: #f4f4f4;
+    font-weight: bold;
+    color: #333;
+    padding: 12px;
+    text-align: left;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+/* Cellules du tableau */
+table td {
+    padding: 12px;
+    text-align: left;
+    border: 1px solid #ddd;
+    color: #666;
+}
+
+/* Ligne au survol */
+table tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* Style du bouton de réservation */
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #28a745;
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #218838;
+    color: white;
+}
+
+/* Pied de page */
+footer {
+    background-color: #fff;
+    padding: 10px;
+    text-align: center;
+    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+
+footer p {
+    font-size: 1rem;
+    color: #666;
+    margin: 0;
+}
