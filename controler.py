@@ -200,6 +200,33 @@ def reservations():
     else:
         return redirect(url_for('connexion'))
 
+
+@app.route("/ChangerMDP", methods=["GET", "POST"])
+def changer_mdp():
+    # Vérifie si l'utilisateur est connecté
+    if 'username' in session:
+        return redirect(url_for('home'))
+
+    if request.method == "POST":
+        email = request.form.get("email")
+        new_password = request.form.get("new-password")
+        confirm_password = request.form.get("confirm-password")
+
+        user = User.query.filter_by(email=email).first()
+
+        if email != user.email:  
+            return render_template("ChangerMDP.htmL")
+
+        if new_password != confirm_password:
+            return render_template("ChangerMDP.htmL")
+        
+        user.password = new_password
+        db.session.commit()
+
+        return redirect(url_for("home"))
+
+    return render_template("ChangerMDP.htmL")
+
 @app.route("/faq")
 def faq():
     return render_template("faq.html")
