@@ -168,7 +168,7 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    
+    image : url('/static/images/pub.jpg');
   }
 
   .what{
@@ -318,7 +318,24 @@
     display: none !important;
   }
 
-  
+  .image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh; /* Hauteur de 80% de l'écran */
+    margin: 0;
+    overflow: hidden; /* Assure qu'il n'y a pas de débordement */
+}
+
+.advertisement-image {
+    max-height: 80%; /* L'image occupe au maximum 80% de la hauteur du conteneur */
+    width: auto; /* Conserve les proportions */
+    object-fit: contain; /* Adapte l'image sans la déformer */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Ajout d'une ombre pour un effet esthétique */
+    border-radius: 10px; /* Coins arrondis */
+}
+
+
   
   
 
