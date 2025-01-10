@@ -48,6 +48,11 @@ def home():
 def Contact():
     return render_template("PContact.html")
 
+@app.route("/commentaire")
+def Commentaire():
+    return render_template("PCom.html")
+
+
 @app.route("/inscription", methods=["POST", "GET"])
 def inscription():
     if request.method == "POST":

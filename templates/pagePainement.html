@@ -40,6 +40,7 @@
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="/cataloque/catalog.html" style="color: rgb(178, 108, 22);">Moto Disponible</a>
                             <a class="dropdown-item" href="/faq">FAQ</a>
+                            <a class="dropdown-item" href="/commentaire">Commentaire</a>
                         </div>
                     </li>
                 </ul>
@@ -63,31 +64,37 @@
                 <img src="{{ url_for('static', filename='images/motolog.png') }}" alt="Logo Rotating" class="rotating-logo">
             </div>
 
-            <form id="paymentForm" action="#" method="POST">
-                <div class="input-group">
-                    <label for="cardHolder">Nom du Titulaire :</label>
-                    <input type="text" id="cardHolder" name="cardHolder" placeholder="Entrez le nom du titulaire" required>
-                </div>
+            
+                <form id="paymentForm" action="#" method="POST">
+                    <div class="input-group">
+                        <label for="cardHolder">Nom du Titulaire :</label>
+                        <input type="text" id="cardHolder" name="cardHolder" placeholder="Entrez le nom du titulaire" required>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="cardNumber">Numéro de Carte :</label>
+                        <input type="text" id="cardNumber" name="cardNumber" placeholder="Entrez le numéro de carte" required>
+                    </div>
+            
+                    <div class="input-group">
+                        <label for="expiryDate">Date d'expiration :</label>
+                        <input type="text" id="expiryDate" name="expiryDate" placeholder="MM/AAAA" required>
+                    </div>
+            
+                    <div class="input-group">
+                        <label for="cvv">CVV :</label>
+                        <input type="text" id="cvv" name="cvv" placeholder="Code de sécurité" required>
+                    </div>
+                    
+                    <div class="btn-container">
+                        <button class="btn" type="submit">Effectuer le paiement</button>
+                    </div>
+                </form>
                 
-                <div class="input-group">
-                    <label for="cardNumber">Numéro de Carte :</label>
-                    <input type="text" id="cardNumber" name="cardNumber" placeholder="Entrez le numéro de carte" required>
-                </div>
-
-                <div class="input-group">
-                    <label for="expiryDate">Date d'expiration :</label>
-                    <input type="text" id="expiryDate" name="expiryDate" placeholder="MM/AAAA" required>
-                </div>
-
-                <div class="input-group">
-                    <label for="cvv">CVV :</label>
-                    <input type="text" id="cvv" name="cvv" placeholder="Code de sécurité" required>
-                </div>
-                
-                <div class="btn-container">
-                    <button class="btn" type="submit">Effectuer le paiement</button>
-                </div>
-            </form>
+               
+               
+            
+            
 
             <p id="message"></p>
         </div>
